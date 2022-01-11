@@ -29,3 +29,8 @@ function toggleTheme() {
     icon.setAttribute("class", "ri-moon-fill");
   }
 }
+
+function active_button() {
+  console.log("checkbox clicked");
+  this.classList.toggle("active");
+}

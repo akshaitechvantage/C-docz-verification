@@ -7168,3 +7168,9 @@ hr {
   border-radius: 21px;
 }
 /*# sourceMappingURL=style.css.map */
+.ri-checkbox-circle-line {
+  cursor: pointer;
+}
+.ri-checkbox-circle-line.active {
+  color: #1671c0 !important;
+}
