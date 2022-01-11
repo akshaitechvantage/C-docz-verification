@@ -1,0 +1,269 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
+$main-color: #2c2f33;
+$text-color: #dadada;
+$shadow-light: #3b4451;
+$shadow-dark: #000000;
+$dimmer-color: #949494;
+$accent-color: #0b4e88;
+$highlight-color: #1a91fa;
+$color-red: #880b0b;
+$color-green: #0c8627;
+
+@import "./imports";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $main-color;
+  color: $text-color;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+.dimmed {
+  color: $dimmer-color !important;
+}
+.border-curved {
+  border-radius: 24.8921px;
+}
+.window-button {
+  border-radius: 12.24px;
+}
+.sidebar {
+  min-height: 400px;
+  position: absolute;
+  min-width: 90px;
+  max-width: 100px;
+  top: 50%;
+  z-index: 500;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: $main-color;
+  border-radius: 16.8921px;
+  .nav-button {
+    padding: 4px 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    &:hover {
+      background: $accent-color;
+    }
+  }
+}
+.neo-shadow-xl {
+  box-shadow: -6.22302px -6.22302px 18.6691px $shadow-light,
+    6.22302px 6.22302px 18.6691px $shadow-dark;
+}
+.neo-shadow-l {
+  box-shadow: -4.22302px -4.22302px 15px $shadow-light,
+    4.22302px 4.22302px 15px $shadow-dark;
+}
+.navbar {
+  min-height: 400px;
+}
+.pressed {
+  box-shadow: inset -6.22302px -6.22302px 6.22302px $shadow-light,
+    inset 3.73381px 3.73381px 6.22302px $shadow-dark;
+}
+.neo-shadow-xl.button:active,
+.neo-shadow-l.button:active {
+  @extend .pressed;
+}
+.button {
+  cursor: pointer;
+}
+
+.accent-color {
+  background-color: #0b4e88;
+}
+.tool-tip {
+  display: inline-block;
+  position: relative;
+}
+.border-curved-sm {
+  border-radius: 8px;
+}
+
+.tool-tip .right {
+  min-width: 150px;
+  width: 100%;
+  top: 50%;
+  left: 100%;
+  margin-left: 20px;
+  transform: translate(0, -50%);
+  padding: 10px 20px;
+  color: $text-color;
+  background-color: $accent-color;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.tool-tip:hover .right {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tool-tip .right i {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -12px;
+  width: 12px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.tool-tip .right i::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 0;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(-45deg);
+  background-color: $accent-color;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.toolbar {
+  padding: 20px 10px;
+}
+.page-number {
+  input {
+    text-align: center;
+    width: 50px;
+  }
+}
+.rounded {
+  border-radius: 124px !important;
+}
+.dropzone {
+  min-width: 200px;
+  min-height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  .coordinate {
+    position: absolute;
+    border: 1px dotted $accent-color;
+    &.x-coordinate {
+      width: 100%;
+      height: 1px;
+      left: 0;
+      right: 0;
+    }
+    &.y-coordinate {
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+}
+
+.tab-bar {
+  display: flex;
+  .tab-button {
+    border-radius: 8px;
+    padding: 0.8rem 1.6rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    transition: background-color 0.4s;
+    transition: color 0.4s;
+    &:hover {
+      background: $accent-color;
+    }
+  }
+  .active {
+    color: $highlight-color;
+  }
+}
+.form-wrapper {
+  box-shadow: 14px 14px 40px $shadow-dark, -7px -7px 30px $shadow-light;
+  border-radius: 8px;
+  .form-content {
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
+  .dropdown-button {
+    padding: 0.8rem 1.2rem 0.8rem 1.6rem;
+    display: inline-block;
+  }
+}
+
+.neo-form-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .neo-input {
+    max-width: 60%;
+  }
+}
+.neo-input {
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  border: none;
+  background-color: $main-color;
+  transition: all 0.4s;
+  color: $text-color;
+  &:focus {
+    @extend .neo-shadow-l;
+    outline: none;
+  }
+}
+hr {
+  border: none;
+  margin: 3rem 0;
+  padding: 2px 0;
+  box-shadow: inset -1.22px -1.22px 3px $shadow-light,
+    inset 1px 1px 2px $shadow-dark;
+}
+.color-red {
+  background-color: $color-red;
+  box-shadow: -6.22302px -6.22302px 18.6691px darken($color: $color-red, $amount:
+          12%),
+    6.22302px 6.22302px 18.6691px darken($color: $color-red, $amount: 30%);
+}
+.color-green {
+  background-color: $color-green;
+  box-shadow: -6.22302px -6.22302px 18.6691px darken($color: $color-green, $amount:
+          12%),
+    6.22302px 6.22302px 18.6691px darken($color: $color-green, $amount: 30%);
+}
+
+// Scrollbar
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $main-color;
+  box-shadow: inset -6.22302px -6.22302px 6.22302px $shadow-light,
+    inset 3.73381px 3.73381px 6.22302px $shadow-dark;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $main-color;
+  /* Black / Shadow / Button */
+
+  box-shadow: -5px -5px 15px $shadow-light, 5px 5px 15px $shadow-dark;
+  border-radius: 21px;
+}
